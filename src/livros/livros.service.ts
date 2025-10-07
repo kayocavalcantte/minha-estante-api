@@ -30,4 +30,24 @@ export class LivrosService {
 
     return livro;
   }
+
+  async update(id: number, updateLivroDto: UpdateLivrosDto): Promise<Livro> {
+
+    const livro = await this.livrosRepository.preload({
+      id: id,
+      ... updateLivroDto
+    });
+      if (!livro) {
+      throw new NotFoundException(`Livro com o ID ${id} não encontrado.`);
+    }
+
+    // Salva a entidade atualizada no banco.
+    return this.livrosRepository.save(livro);
+  }
+
+  async remove(id: number): Promise<void> {
+    const livroIndex = await this.findOne(id);
+
+    await this.livrosRepository.remove(livroIndex);
+  }
 }

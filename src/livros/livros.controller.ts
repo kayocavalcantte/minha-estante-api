@@ -9,6 +9,7 @@ import {
 } from "@nestjs/common";
 import type { CreateLivrosDto } from "./dto/create-livro.dto";
 import { LivrosService } from "./livros.service";
+import { UpdateLivrosDto } from "./dto/update-livro.dto";
 
 @Controller("livros")
 export class LivrosController {
@@ -28,4 +29,13 @@ export class LivrosController {
   findOne(@Param("id") id: string) {
     return this.livrosService.findOne(+id);
   }
+  @Patch(':id')
+    update(@Param('id') id: string, @Body() updateLivroDto: UpdateLivrosDto) {
+      return this.livrosService.update(+id, updateLivroDto);
+    }
+  
+    @Delete(':id')
+    remove(@Param('id') id: string) {
+      return this.livrosService.remove(+id);
+    }
 }

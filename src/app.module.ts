@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AutoresModule } from './autores/autores.module';
+import { LivrosModule } from "./livros/livros.module";
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AutoresModule } from './autores/autores.module';
       synchronize: true, // Sincroniza o schema do banco com as entidades (ótimo para dev)
     }),
     AutoresModule,
+    LivrosModule
   ],
   controllers: [AppController],
   providers: [AppService],

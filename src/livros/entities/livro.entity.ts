@@ -1,5 +1,6 @@
 // import { Livro } from '../../livros/entities/livro.entity';
 import { Autor } from "src/autores/entities/autores.entity";
+import { Genero } from 'src/generos/entities/generos.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -36,4 +37,6 @@ export class Livro {
 
   @ManyToOne(() => Autor, (autor) => autor.livros)
   autor: Autor[];
+  @ManyToOne(() => Genero, genero => genero.livros)
+generos: Genero;
 }

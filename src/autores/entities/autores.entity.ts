@@ -1,4 +1,4 @@
-// import { Livro } from '../../livros/entities/livro.entity';
+import { Livro } from "src/livros/entities/livro.entity";
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 
 @Entity()
@@ -24,6 +24,6 @@ export class Autor {
   @CreateDateColumn()
   data_cadastro: Date;
 
-  // @OneToMany(() => Livro, livro => livro.autor)
-  // livros: Livro[];
+  @OneToMany(() => Livro, livro => livro.autor)
+  livros: Livro[];
 }

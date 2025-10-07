@@ -76,7 +76,7 @@ npm run start:prod
 }
 ```
 
-- **Atualizar Livro (`PUT /livros/:id`):**
+- **Atualizar Livro (`PATCH /livros/:id`):**
 ```json
 {
   "titulo": "O Hobbit",
@@ -137,7 +137,7 @@ npm run start:prod
 }
 ```
 
-- **Atualizar Autor (`PUT /autores/:id`):**
+- **Atualizar Autor (`PATCH /autores/:id`):**
 ```json
 {
   "nome": "George",
@@ -195,7 +195,7 @@ npm run start:prod
 }
 ```
 
-- **Atualizar Gênero (`PUT /generos/:id`):**
+- **Atualizar Gênero (`PATCH /generos/:id`):**
 ```json
 {
   "nome": "Drama",
@@ -248,3 +248,4 @@ npm run start:prod
   "message": "Gênero removido com sucesso"
 }
 ```
+

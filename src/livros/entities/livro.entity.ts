@@ -26,7 +26,7 @@ export class Livro {
   @Column({ nullable: true })
   editora: string;
 
-  @Column()
+  @ManyToOne(() => Genero, genero => genero.livros)
   genero: string;
 
   @Column()
@@ -37,6 +37,4 @@ export class Livro {
 
   @ManyToOne(() => Autor, (autor) => autor.livros)
   autor: Autor[];
-  @ManyToOne(() => Genero, genero => genero.livros)
-generos: Genero;
 }

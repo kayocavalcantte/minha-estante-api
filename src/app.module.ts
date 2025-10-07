@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AutoresModule } from './autores/autores.module';
 import { LivrosModule } from "./livros/livros.module";
+import { GenerosModule } from "./generos/generos.module";
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { LivrosModule } from "./livros/livros.module";
       synchronize: true, // Sincroniza o schema do banco com as entidades (ótimo para dev)
     }),
     AutoresModule,
-    LivrosModule
+    LivrosModule,
+    GenerosModule
   ],
   controllers: [AppController],
   providers: [AppService],

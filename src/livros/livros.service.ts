@@ -18,7 +18,9 @@ export class LivrosService {
   }
 
   async findAll(): Promise<Livro[]> {
-    return await this.livrosRepository.find();
+    return await this.livrosRepository.find({
+      relations: ['autor', 'genero']
+    });
   }
 
   async findOne(id: number): Promise<Livro> {

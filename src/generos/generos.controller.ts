@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { GenerosService } from './generos.service';
-import { CreateGenerosDto } from './dto/create-generos.dto';
-import { UpdateGeneroDto } from './dto/update-generos.dto';
+import { CreateGenerosDto } from './dto/create-genero.dto';
+import { UpdateGeneroDto } from './dto/update-genero.dto';
 
 @Controller('generos')
 export class GenerosController {

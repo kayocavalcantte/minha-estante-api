@@ -6,6 +6,7 @@ import { AutoresModule } from './autores/autores.module';
 import { LivrosModule } from "./livros/livros.module";
 import { GenerosModule } from "./generos/generos.module";
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { AuthModule } from './auth/auth.module';
     AutoresModule,
     LivrosModule,
     GenerosModule,
-    AuthModule
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],

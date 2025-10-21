@@ -6,21 +6,20 @@ import { AuthGuard } from './auth.guard';
 import { LocalAuthGuard } from './local-auth.guard';
 import { JwtAuthGuard } from './jwt-auth.guard';
 
+interface LoginRequestBody {
+  email: string
+  password: string
+}
+
 @Controller('auth')
 export class AuthController {
     constructor(private authService: AuthService) { }
 
-    //   @HttpCode(HttpStatus.OK)
-    //   @Post('login')
-    //   signIn(@Body() authLoginDto: AuthLoginDto) {
-    //     return this.authService.signIn(authLoginDto.email, authLoginDto.password);
-    //   }
 
-
-    @UseGuards(LocalAuthGuard)
+    @HttpCode(HttpStatus.OK)
     @Post('login')
-    async login(@Request() req) {
-        return this.authService.login(req.user);
+    async login(@Body() data: LoginRequestBody) {
+      return this.authService.login(data);
     }
 
 

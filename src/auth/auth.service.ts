@@ -27,7 +27,7 @@
 
 
 
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 
@@ -38,13 +38,13 @@ export class AuthService {
     private jwtService: JwtService
   ) {}
 
-async validateUser(email: string, pass: string): Promise<boolean> {
-  const user = await this.usersService.findOne(email);
-  if (user && user.password === pass) {
-    return true;
+  async validateUser(email: string, pass: string): Promise<boolean> {
+    const user = await this.usersService.findOne(email);
+    if (user && user.password === pass) {
+      return true;
+    }
+    return false;
   }
-  return false;
-}
 
 
   async login(user: any) {

@@ -3,8 +3,9 @@ import { GenerosService } from './generos.service';
 import { CreateGenerosDto } from './dto/create-genero.dto';
 import { UpdateGeneroDto } from './dto/update-genero.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 @Controller('generos')
 export class GenerosController {
   constructor(private readonly generosService: GenerosService) {}

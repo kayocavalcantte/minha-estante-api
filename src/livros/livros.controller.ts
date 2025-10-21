@@ -6,11 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from "@nestjs/common";
 import type { CreateLivrosDto } from "./dto/create-livro.dto";
 import { LivrosService } from "./livros.service";
 import { UpdateLivrosDto } from "./dto/update-livro.dto";
+import { AuthGuard } from "src/auth/auth.guard";
 
+@UseGuards(AuthGuard)
 @Controller("livros")
 export class LivrosController {
   constructor(private readonly livrosService: LivrosService) {}

@@ -3,8 +3,9 @@ import { AutoresService } from './autores.service';
 import { CreateAutoresDto } from './dto/create-autores.dto';
 import { UpdateAutoreDto } from './dto/update-autores.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 @Controller('autores')
 export class AutoresController {
   constructor(private readonly autoresService: AutoresService) {}

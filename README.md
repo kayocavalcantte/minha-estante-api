@@ -1,98 +1,251 @@
+# 📖 Minha Estante API
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 🌐 URL da API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Acesse a API em:  
+**https://minha-estante-api.onrender.com**
 
-## Description
+## 📝 Descrição
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+**Minha Estante API** é uma aplicação backend construída com [NestJS](https://nestjs.com/) para gerenciar uma coleção pessoal de livros. A API permite cadastrar, consultar, atualizar e remover livros, autores e gêneros, servindo como uma base robusta para uma aplicação de gerenciamento de biblioteca.
 
-## Project setup
+## ✨ Tecnologias Utilizadas
 
-```bash
-$ npm install
-```
+- **Framework:** NestJS
+- **Linguagem:** TypeScript
+- **Banco de Dados:** SQLite (via TypeORM)
+- **Testes:** Jest
+- **Linting/Formatação:** ESLint, Prettier
 
-## Compile and run the project
+## 🗂️ Estrutura das Entidades
 
-```bash
-# development
-$ npm run start
+- **Livro**
+  - id: number
+  - titulo: string
+  - autor: Autor
+  - genero: Genero
+  - anoPublicacao: number
+- **Autor**
+  - id: number
+  - nome: string
+- **Genero**
+  - id: number
+  - nome: string
 
-# watch mode
-$ npm run start:dev
+## 📋 Possíveis Resultados da API
 
-# production mode
-$ npm run start:prod
-```
+- Listar todos os livros
+- Buscar livro por ID
+- Adicionar novo livro
+- Atualizar livro existente
+- Remover livro
+- Listar autores/gêneros
+- Adicionar/editar/remover autores e gêneros
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## 🚀 Como Executar
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Instalar dependências
+npm install
+
+# Rodar em modo desenvolvimento
+npm run start:dev
+
+# Rodar em produção
+npm run build
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🧪 Exemplo de JSON para Testes
 
-## Resources
+### Livro
 
-Check out a few resources that may come in handy when working with NestJS:
+- **Criar Livro (`POST /livros`):**
+```json
+{
+  "titulo": "O Senhor dos Anéis",
+  "subtitulo": "A Sociedade do Anel",
+  "sinopse": "Primeiro volume da trilogia épica de Tolkien.",
+  "editora": "HarperCollins",
+  "genero": "Fantasia",
+  "ano_publicacao": "1954"
+}
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+- **Atualizar Livro (`PATCH /livros/:id`):**
+```json
+{
+  "titulo": "O Hobbit",
+  "subtitulo": "Uma Jornada Inesperada",
+  "sinopse": "A aventura de Bilbo Bolseiro.",
+  "editora": "HarperCollins",
+  "genero": "Fantasia",
+  "ano_publicacao": "1937"
+}
+```
 
-## Support
+- **Resposta de Listagem (`GET /livros`):**
+```json
+[
+  {
+    "id": 1,
+    "titulo": "O Senhor dos Anéis",
+    "subtitulo": "A Sociedade do Anel",
+    "sinopse": "Primeiro volume da trilogia épica de Tolkien.",
+    "editora": "HarperCollins",
+    "genero": "Fantasia",
+    "ano_publicacao": "1954"
+  }
+]
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- **Resposta de Busca (`GET /livros/:id`):**
+```json
+{
+  "id": 1,
+  "titulo": "O Senhor dos Anéis",
+  "subtitulo": "A Sociedade do Anel",
+  "sinopse": "Primeiro volume da trilogia épica de Tolkien.",
+  "editora": "HarperCollins",
+  "genero": "Fantasia",
+  "ano_publicacao": "1954"
+}
+```
 
-## Stay in touch
+- **Remover Livro (`DELETE /livros/:id`):**
+```json
+{
+  "message": "Livro removido com sucesso"
+}
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Autor
 
-## License
+- **Criar Autor (`POST /autores`):**
+```json
+{
+  "nome": "J.K.",
+  "sobrenome": "Rowling",
+  "nacionalidade": "Britânica",
+  "data_nascimento": "1965-07-31",
+  "website": "https://www.jkrowling.com",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+- **Atualizar Autor (`PATCH /autores/:id`):**
+```json
+{
+  "nome": "George",
+  "sobrenome": "Martin",
+  "nacionalidade": "Americana",
+  "data_nascimento": "1948-09-20",
+  "website": "https://www.georgerrmartin.com",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
+
+- **Resposta de Listagem (`GET /autores`):**
+```json
+[
+  {
+    "id": 1,
+    "nome": "J.K.",
+    "sobrenome": "Rowling",
+    "nacionalidade": "Britânica",
+    "data_nascimento": "1965-07-31",
+    "website": "https://www.jkrowling.com",
+    "data_cadastro": "2024-06-10T00:00:00.000Z"
+  }
+]
+```
+
+- **Resposta de Busca (`GET /autores/:id`):**
+```json
+{
+  "id": 1,
+  "nome": "J.K.",
+  "sobrenome": "Rowling",
+  "nacionalidade": "Britânica",
+  "data_nascimento": "1965-07-31",
+  "website": "https://www.jkrowling.com",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
+
+- **Remover Autor (`DELETE /autores/:id`):**
+```json
+{
+  "message": "Autor removido com sucesso"
+}
+```
+
+### Gênero
+
+- **Criar Gênero (`POST /generos`):**
+```json
+{
+  "nome": "Aventura",
+  "descricao": "Livros com histórias de exploração e desafios.",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
+
+- **Atualizar Gênero (`PATCH /generos/:id`):**
+```json
+{
+  "nome": "Drama",
+  "descricao": "Livros com foco em conflitos emocionais.",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
+
+- **Resposta de Listagem (`GET /generos`):**
+```json
+[
+  {
+    "id": 1,
+    "nome": "Fantasia",
+    "descricao": "Livros com elementos mágicos e mundos imaginários.",
+    "data_cadastro": "2024-06-10T00:00:00.000Z"
+  }
+]
+```
+
+- **Resposta de Busca (`GET /generos/:id`):**
+```json
+{
+  "id": 1,
+  "nome": "Fantasia",
+  "descricao": "Livros com elementos mágicos e mundos imaginários.",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
+
+- **Remover Gênero (`DELETE /generos/:id`):**
+```json
+{
+  "message": "Gênero removido com sucesso"
+}
+```
+- **Resposta de Busca (`GET /generos/:id`):**
+```json
+{
+  "id": 1,
+  "nome": "Fantasia",
+  "descricao": "Livros com elementos mágicos e mundos imaginários.",
+  "data_cadastro": "2024-06-10T00:00:00.000Z"
+}
+```
+
+- **Remover Gênero (`DELETE /generos/:id`):**
+```json
+{
+  "message": "Gênero removido com sucesso"
+}
+```
+

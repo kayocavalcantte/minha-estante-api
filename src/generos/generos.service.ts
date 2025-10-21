@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Genero } from './entities/genero.entity';
-import { CreateGenerosDto } from './dto/create-generos.dto';
-import { UpdateGeneroDto } from './dto/update-generos.dto';
+import { Genero } from './entities/generos.entity';
+import { CreateGenerosDto } from './dto/create-genero.dto';
+import { UpdateGeneroDto } from './dto/update-genero.dto';
 
 @Injectable()
 export class GenerosService {

@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { AutoresService } from './autores.service';
 import { CreateAutoresDto } from './dto/create-autores.dto';
 import { UpdateAutoreDto } from './dto/update-autores.dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('autores')
 export class AutoresController {
   constructor(private readonly autoresService: AutoresService) {}

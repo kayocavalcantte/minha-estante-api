@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { AutoresModule } from './autores/autores.module';
 import { LivrosModule } from "./livros/livros.module";
 import { GenerosModule } from "./generos/generos.module";
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -16,7 +18,9 @@ import { GenerosModule } from "./generos/generos.module";
     }),
     AutoresModule,
     LivrosModule,
-    GenerosModule
+    GenerosModule,
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],

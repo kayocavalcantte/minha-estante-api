@@ -38,14 +38,14 @@ export class AuthService {
     private jwtService: JwtService
   ) {}
 
-  async validateUser(email: string, pass: string): Promise<boolean> {
-    const user = await this.usersService.findOne(email);
-    if (user && user.password === pass) {
-      const { password, ...result } = user;
-      return result;
-    }
-    return false;
+async validateUser(email: string, pass: string): Promise<boolean> {
+  const user = await this.usersService.findOne(email);
+  if (user && user.password === pass) {
+    return true;
   }
+  return false;
+}
+
 
   async login(user: any) {
     const payload = { email: user.email, sub: user.userId };
